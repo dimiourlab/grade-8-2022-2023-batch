@@ -1,0 +1,216 @@
+<html>
+<head>
+    <link rel="stylesheet" href="home.css">
+<title>GRADE 8 2022-2023</title>
+<link rel="shortcut icon" type="image/jpg" href="faviconf.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:wght@700&display=swap" rel="stylesheet">
+<style>
+    
+*{
+margin:0; padding:0; boxsizing:border-box;
+}
+h3{
+
+        font-family: 'Quattrocento Sans', sans-serif;
+        color:rgb(248, 194, 16);
+        text-decoration-style: dotted;
+    
+}
+nav{
+width: 100%; height: 15vh;
+background-image:"assets/tns.png";
+display: flex; justify-content: space-between;
+align-items: center;
+}
+nav:hover{
+    background: #23372C;
+}
+nav .mainmenu{
+width: 40%;
+display: flex; justify-content: space-around;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+main{
+width: 100%; height: 85vh;
+display: flex; justify-content: center;
+align-items: center;
+text-align: center;
+}
+section h3{
+letter-spacing: 3px; font-weight: 200;
+}
+section h1{
+text-transform: uppercase;
+}
+section div{
+animation:changeborder 10s infinite linear;
+border: 7px solid rgb(1, 2, 2);
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
+
+}
+.modal-content.h1 {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
+
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
+    background-color: #23372C;
+    border-radius: 25px;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:hover{
+    opacity: 1;}
+    
+    p{
+        font-family: 'Quattrocento Sans', sans-serif;;    
+border: none;
+    background:  orange;
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all 500ms ease; 
+    }
+</style>
+<meta name="google-site-verification" content="YRvSPoeiEa5dOjTwrmMiPDA-HCQ4qLUrrroVOx5SYEQ" />
+    </head>
+<body>
+<!--Let us create a simple menu using the navigation tags-->
+<!--Use header to indicate that manu will be a part of header -->
+<header>
+<nav>
+    <image src = "assets/tns.png"width=150 height="100"></image>
+<!--Lets define the menu items now-->
+<div class = "mainmenu">
+<a href="gallery.html">Gallery</a>
+<a href="feed-gibbonware.html">Stream</a>
+<a href="creationmain.html">Creations</a>
+<a href="land.html">Log In</a>
+
+
+
+
+</div>
+</nav>
+
+<main>
+<section>
+<div class = "change_text"><b>GRADE 8</b></div>
+
+
+<h1>2022 - 2023 BATCH</h1> 
+<h3>Programmed & Developed By Kush Kundalia</h3>
+
+    <button id="myBtn">Student Of The Month (JAN)</button>
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h1>1st</h1>
+    <p>Sidharth Parmar</p>
+    <h1>2nd</h1>
+    <p>Priyank Jivani</p>
+  </div>
+
+</div>
+
+<script>
+
+var modal = document.getElementById("myModal");
+
+
+var btn = document.getElementById("myBtn");
+
+
+var span = document.getElementsByClassName("close")[0];
+
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+
+window.onclick = function(event) {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+    
+<script>
+    window.addEventListener("online", function() {
+  alert("Connection Revived.");
+});
+
+window.addEventListener("offline", function() {
+  alert("Server Lost Connection");
+});
+
+</script>
+</body>
+</html>

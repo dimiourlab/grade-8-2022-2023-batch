@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:wght@700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/jpg" href="faviconf.png"/>
+    <title>Upload</title>
+    <style>
+        label{
+            display: inline-block;
+            font-family: 'Quattrocento Sans', sans-serif;
+        }
+        input[type=text], select, textarea{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+  font-family: 'Quattrocento Sans', sans-serif;
+}
+
+/* Style the label to display next to the inputs */
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  font-family: 'Quattrocento Sans', sans-serif;
+}
+
+/* Style the submit button */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  font-family: 'Quattrocento Sans', sans-serif;
+}
+
+/* Style the container */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+/* Floating column for labels: 25% width */
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+/* Floating column for inputs: 75% width */
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+    font-family: 'Quattrocento Sans', sans-serif;
+  }
+}
+    </style>
+</head>
+<body>
+    
+    <label>Name</label> <input id="Namebox" type="text"><hr>
+    <label>School Email Id</label> <input id="mailbox" type="text"><hr>
+    <label>Title</label> <input id="titlbox" type="text"><hr>
+    <label>Link (Google Drive)</label> <input id="hlbox" type="text"><hr>
+    <label>Link To Cover Page (Only if you're uploading to feed)</label> <input id="cpbox" type="text"><hr>
+    <label>Upload Time (Will Be Displayed Under Your Feed Post)</label> <input id="timebox" type="datetime-local"><hr>
+    <label>Choose Section</label>
+    <select id="PgSel">
+        <option value="Feed">Feed(Creative Write Ups, Images With Description</option>
+        <option value="Creations">Images(Display Work, Posters)</option>
+    </select>
+    <hr>
+    <button id="submit">Submit</button>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
+        const firebaseConfig = {
+          apiKey: "AIzaSyDEwXFPSCUv3MwoHcFY3Qd7OmWTaDXBfFM",
+  authDomain: "grade-8-server-c1ecb.firebaseapp.com",
+  databaseURL: "https://grade-8-server-c1ecb-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "grade-8-server-c1ecb",
+  storageBucket: "grade-8-server-c1ecb.appspot.com",
+  messagingSenderId: "1020653460153",
+  appId: "1:1020653460153:web:bee9a32c8a2662b0da1968"
+        };
+        const app = initializeApp(firebaseConfig);
+
+        import{getDatabase, ref, set, child} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-database.js"
+
+        const db = getDatabase();
+
+        var nameBox = document.getElementById("Namebox");
+        var EmailBox = document.getElementById("mailbox");
+        var TitleBox = document.getElementById("titlbox");
+        var linkBox = document.getElementById("hlbox");
+        var selboxBox = document.getElementById("PgSel");
+        var CoverImg = document.getElementById("cpbox");
+        var dateTime = document.getElementById("timebox")
+
+        var submitbtn = document.getElementById("submit")
+
+        function returnData(){
+            set(ref(db, "Responses/" + nameBox.value),{
+                NameOfStudent: nameBox.value,
+                Email: EmailBox.value,
+                Title: TitleBox.value,
+                Attachment: linkBox.value,
+                Display: selboxBox.value,
+                Cover: CoverImg.value,
+                Date: dateTime.value
+            })
+
+            .then(()=>{
+                alert("Thankyou For Supporting The Website, Your response has been recorded")
+            })
+            .catch((error)=>{
+                alert("unsuccessful, error encountered by server"+error)
+            })
+        }
+
+        submitbtn.addEventListener('click', returnData)
+      </script>
+
+</body>
+</html>
